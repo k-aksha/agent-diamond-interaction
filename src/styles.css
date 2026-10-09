@@ -129,11 +129,6 @@ button {
   place-items: center;
 }
 
-.player__controls button:nth-child(2) {
-  width: 48px;
-  height: 48px;
-}
-
 .player__controls svg {
   display: block;
   fill: currentColor;
@@ -161,15 +156,6 @@ button {
 
 .ready-pill__dot {
   animation: pulse 2.2s ease-in-out infinite;
-}
-
-.player__hint {
-  flex-basis: 100%;
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
-  text-align: center;
 }
 
 .behavior-card {
@@ -1593,7 +1579,7 @@ button {
 
 .site-nav__mark {
   color: var(--ink);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   letter-spacing: 0;
   text-decoration: none;
@@ -1671,8 +1657,7 @@ button {
   isolation: isolate;
   min-height: calc(100vh - 0px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 280px);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   padding: 152px 40px 80px;
   overflow: hidden;
@@ -1743,22 +1728,6 @@ button {
   color: #ffffff !important;
 }
 
-.landing__stage {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-  padding: 0;
-  background: transparent;
-  border: 0;
-}
-
-.landing__stage p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.19;
-  color: rgba(255, 255, 255, 0.78);
-}
-
 .landing__features,
 .landing__framework {
   width: min(1078px, calc(100% - 80px));
@@ -1816,8 +1785,11 @@ button {
 }
 
 .landing__sample pre,
-.docs__example pre {
+.docs__example pre,
+.landing__sample .code-view,
+.docs__example .code-view {
   flex: 1;
+  min-width: 0;
   margin-top: 0;
 }
 
@@ -1850,16 +1822,47 @@ button {
 }
 
 .landing pre,
-.docs pre {
+.docs pre,
+.code-view {
   margin: 16px 0 0;
   padding: 16px 18px;
   overflow: auto;
   border-radius: var(--radius);
   background: #000000;
   color: #ffffff;
-  font-family: ui-monospace, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 13px;
   line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.tok--keyword {
+  color: #6ee7b7;
+}
+
+.tok--string {
+  color: #f6c56b;
+}
+
+.tok--number {
+  color: #b7f07a;
+}
+
+.tok--type {
+  color: #ffffff;
+}
+
+.tok--name {
+  color: #d7efe6;
+}
+
+.tok--punct {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.tok--comment {
+  color: #8d8d8d;
 }
 
 .docs code {
@@ -1908,10 +1911,6 @@ button {
   }
 }
 
-.landing__hero .kicker {
-  color: rgba(255, 255, 255, 0.72);
-}
-
 .site button,
 .site .info-card__actions span,
 .site .ready-pill,
@@ -1923,12 +1922,20 @@ button {
 }
 
 .site .composer button,
-.site .info-card__actions .is-primary,
-.site .player__controls button {
+.site .info-card__actions .is-primary {
   border: 1px solid #000000;
   background: transparent;
   color: #000000;
   padding: 11px 33px;
+}
+
+.site .player__controls button {
+  border: 1px solid #000000;
+  background: transparent;
+  color: #000000;
+  width: 44px;
+  height: 44px;
+  padding: 0;
 }
 
 .site .behavior-card,

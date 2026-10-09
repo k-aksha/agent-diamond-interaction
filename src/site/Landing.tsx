@@ -1,5 +1,6 @@
 import { AgentAvatar } from "../avatar/AgentAvatar"
 import type { AgentStateId } from "../avatar/types"
+import { CodeBlock } from "./CodeBlock"
 import { githubUrl, navigate } from "./nav"
 
 const features: { title: string; body: string; state: AgentStateId }[] = [
@@ -40,7 +41,6 @@ export function Landing() {
     <main className="landing">
       <section className="landing__hero">
         <div>
-          <p className="kicker">Open source agent presence</p>
           <h1>One diamond. Every state the agent can be in.</h1>
           <p className="landing__lede">
             Agent Diamond is a small framework for a persistent agent. You name the state. The face, the motion, and the surrounding UI change with it.
@@ -71,10 +71,6 @@ export function Landing() {
             </a>
           </div>
         </div>
-        <div className="landing__stage">
-          <AgentAvatar state="idle" size={180} />
-          <p>idle</p>
-        </div>
       </section>
 
       <section className="landing__features" aria-label="Agent features">
@@ -97,9 +93,14 @@ export function Landing() {
         </div>
         <div className="landing__sample">
           <AgentAvatar state="planning" size={120} />
-          <pre>{`import { AgentAvatar } from "./avatar/AgentAvatar"
+          <CodeBlock
+            code={`import { AgentAvatar } from "./avatar/AgentAvatar"
 
-<AgentAvatar state="planning" size={64} />`}</pre>
+<AgentAvatar
+  state="planning"
+  size={64}
+/>`}
+          />
         </div>
       </section>
     </main>

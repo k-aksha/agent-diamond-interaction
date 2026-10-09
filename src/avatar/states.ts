@@ -24,9 +24,11 @@ const move = (patch: Partial<MotionSpec>): MotionSpec => ({
   reach: false,
   conduct: false,
   peace: false,
-  wave: false,
+  deliver: false,
+  glasses: false,
   hat: false,
   orbit: false,
+  turn: false,
   ...patch,
 })
 
@@ -155,7 +157,7 @@ export const agentStates: AgentState[] = [
     extension: false,
     layout: "split",
     expression: face({ smile: 1, smileWidth: 0.52, open: 0.22, browRaise: 1.2, browPinch: -0.35, eyeOpen: 1.14, lookX: 0, lookY: -1, cheek: 0.7, lean: 4 }),
-    motion: move({ float: 3, floatDuration: 4.8, blinkEvery: 5600, wave: true }),
+    motion: move({ float: 3, floatDuration: 4.8, blinkEvery: 5600 }),
   },
   {
     id: "searching",
@@ -183,7 +185,7 @@ export const agentStates: AgentState[] = [
     extension: false,
     layout: "split",
     expression: face({ smile: 0.4, smileWidth: 0.22, open: 0.5, browRaise: 2, browPinch: -0.45, eyeOpen: 1.22, lookX: 1, lookY: -6, cheek: 0.3, lean: -2 }),
-    motion: move({ float: 2, floatDuration: 5.2, blinkEvery: 6200 }),
+    motion: move({ float: 2, floatDuration: 5.2, blinkEvery: 6200, glasses: true }),
   },
   {
     id: "deciding",
@@ -211,7 +213,7 @@ export const agentStates: AgentState[] = [
     extension: false,
     layout: "split",
     expression: face({ smile: 0.75, smileWidth: 0.38, browRaise: 1.35, browPinch: -0.15, eyeOpen: 1.12, lookX: 1, lookY: -3, cheek: 0.5, lean: 3 }),
-    motion: move({ float: 2, floatDuration: 4.6, blinkEvery: 3200, conduct: true }),
+    motion: move({ float: 2, floatDuration: 4.6, blinkEvery: 3200, conduct: true, turn: true }),
   },
   {
     id: "executing",
@@ -253,7 +255,7 @@ export const agentStates: AgentState[] = [
     extension: false,
     layout: "split",
     expression: face({ smile: 1.3, smileWidth: 0.75, open: 0.18, browRaise: 0.9, browPinch: -0.7, eyeOpen: 1.08, lookY: -1, cheek: 1 }),
-    motion: move({ float: 1.5, floatDuration: 5.6, blinkEvery: 5600 }),
+    motion: move({ float: 1.5, floatDuration: 5.6, blinkEvery: 5600, deliver: true }),
   },
   {
     id: "paused",

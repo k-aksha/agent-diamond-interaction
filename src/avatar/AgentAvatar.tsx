@@ -72,9 +72,11 @@ export function AgentAvatar({ state, size = 156, label = false }: AgentAvatarPro
             reach={spec.motion.reach}
             conduct={spec.motion.conduct}
             peace={spec.motion.peace}
-            wave={spec.motion.wave}
+            deliver={spec.motion.deliver}
+            glasses={spec.motion.glasses}
             hat={spec.motion.hat}
             orbit={spec.motion.orbit}
+            turn={spec.motion.turn}
           />
         </motion.div>
       </motion.div>

@@ -1,4 +1,5 @@
 import { AgentAvatar } from "../avatar/AgentAvatar"
+import { CodeBlock } from "./CodeBlock"
 import { githubUrl } from "./nav"
 
 export function Docs() {
@@ -15,12 +16,14 @@ export function Docs() {
         <p>Any surface that shows the agent uses the same prop. The workspace, the playground, and a chat header all stay aligned.</p>
         <div className="docs__example">
           <AgentAvatar state="idle" size={96} />
-          <pre>{`import { AgentAvatar } from "./avatar/AgentAvatar"
+          <CodeBlock
+            code={`import { AgentAvatar } from "./avatar/AgentAvatar"
 import type { AgentStateId } from "./avatar/types"
 
 export function Presence({ state }: { state: AgentStateId }) {
   return <AgentAvatar state={state} size={64} />
-}`}</pre>
+}`}
+          />
         </div>
       </section>
 
@@ -31,7 +34,8 @@ export function Presence({ state }: { state: AgentStateId }) {
         </p>
         <div className="docs__example">
           <AgentAvatar state="planning" size={120} />
-          <pre>{`{
+          <CodeBlock
+            code={`{
   id: "planning",
   expression: face({
     smile: 1.2,
@@ -45,7 +49,8 @@ export function Presence({ state }: { state: AgentStateId }) {
     peace: true,
     float: 0,
   }),
-}`}</pre>
+}`}
+          />
         </div>
       </section>
 
@@ -62,7 +67,7 @@ export function Presence({ state }: { state: AgentStateId }) {
             <h3>Motion</h3>
             <p><code>float</code> and <code>floatDuration</code> are the idle drift. <code>blinkEvery</code> is the pause between blinks. <code>0</code> keeps the eyes open.</p>
             <p><code>scan</code> moves the gaze. <code>nod</code> dips the head. <code>walk</code> strides left and right.</p>
-            <p><code>reach</code>, <code>conduct</code>, <code>peace</code>, <code>wave</code>, <code>hat</code>, and <code>orbit</code> turn on for that state only. Orbit sends child agents around the face, and the eyes follow them.</p>
+            <p><code>reach</code>, <code>conduct</code>, <code>peace</code>, <code>deliver</code>, <code>glasses</code>, <code>hat</code>, <code>orbit</code>, and <code>turn</code> turn on for that state only. Orbit sends child agents around the face, and the eyes follow them. Needs approval turns, holds, then rotates through depth. Completed holds, turns through depth, morphs into a glass tick, then morphs back. Analyzing wears glasses, with the eyes drawn on top of the lenses.</p>
           </article>
         </div>
       </section>

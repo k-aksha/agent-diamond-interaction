@@ -45,9 +45,11 @@ export type MotionSpec = {
   reach: boolean
   conduct: boolean
   peace: boolean
-  wave: boolean
+  deliver: boolean
+  glasses: boolean
   hat: boolean
   orbit: boolean
+  turn: boolean
 }
 
 export type AgentState = {

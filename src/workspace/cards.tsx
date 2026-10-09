@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import type { AgentStateId } from "../avatar/types"
 
 const cardsFor: Partial<Record<AgentStateId, () => ReactNode>> = {
+  understanding: () => <UnderstandingCard />,
   prioritizing: () => <ChoiceCard />,
   "selecting-tools": () => (
     <>
@@ -25,6 +26,9 @@ const cardsFor: Partial<Record<AgentStateId, () => ReactNode>> = {
     </>
   ),
   completed: () => <ChangeCard />,
+  executing: () => <ExecutingCard />,
+  validating: () => <ValidatingCard />,
+  paused: () => <PausedCard />,
   error: () => <FailedCard />,
 }
 
@@ -176,6 +180,53 @@ function ComputerCard() {
   )
 }
 
+function UnderstandingCard() {
+  return (
+    <Card title="Move Friday’s design review" kicker="Interpret">
+      <ol>
+        <li>
+          <b>1</b>
+          <span>Text · move the review</span>
+        </li>
+        <li>
+          <b>2</b>
+          <span>Intent · tell the team why</span>
+        </li>
+        <li>
+          <b>→</b>
+          <span>Context · Friday, design review</span>
+        </li>
+      </ol>
+      <p className="info-card__fine">Fragments are becoming one meaning.</p>
+    </Card>
+  )
+}
+
+function ExecutingCard() {
+  return (
+    <Card title="Sending the Friday note" kicker="In progress">
+      <ol>
+        <li>
+          <b>✓</b>
+          <span>Draft saved</span>
+        </li>
+        <li>
+          <b>✓</b>
+          <span>Calendar updated</span>
+        </li>
+        <li>
+          <b>→</b>
+          <span>Sending to Sarah</span>
+        </li>
+      </ol>
+      <div className="meter">
+        <span className="meter__fill is-execute" />
+      </div>
+      <p className="info-card__fine">2 of 3 steps complete</p>
+    </Card>
+  )
+}
+
 function ChangeCard() {
   return (
     <Card title="Refactor auth flow" kicker="Done" tone="green">
@@ -253,10 +304,48 @@ function CookiesCard() {
   )
 }
 
+function ValidatingCard() {
+  return (
+    <Card title="Checking the Friday note" kicker="Verify">
+      <ol>
+        <li>
+          <b>✓</b>
+          <span>Expected: sent only to Sarah</span>
+        </li>
+        <li>
+          <b>✓</b>
+          <span>Actual: one recipient</span>
+        </li>
+        <li>
+          <b>→</b>
+          <span>Comparing against the spec</span>
+        </li>
+      </ol>
+      <p className="info-card__fine">Nothing half-sent went out.</p>
+    </Card>
+  )
+}
+
+function PausedCard() {
+  return (
+    <Card title="Friday note" kicker="Held">
+      <p>Stopped after the calendar update, before the note is sent.</p>
+      <div className="meter">
+        <span className="meter__fill is-held" />
+      </div>
+      <p className="info-card__fine">Safe checkpoint. Resume whenever you're ready.</p>
+      <Actions>
+        <span className="is-primary">Resume</span>
+        <span>Leave held</span>
+      </Actions>
+    </Card>
+  )
+}
+
 function FailedCard() {
   return (
-    <Card title="New email" kicker="Couldn’t send" tone="rose">
-      <p>The mail service returned an error. Your draft is saved, and nothing was lost.</p>
+    <Card title="Friday note" kicker="Source unavailable" tone="rose">
+      <p>I couldn't retrieve a source. The saved work is intact, and nothing was published.</p>
       <Actions>
         <span className="is-primary">Try again</span>
         <span>Dismiss</span>

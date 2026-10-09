@@ -86,7 +86,6 @@ export function Gallery({ embedded = false }: { embedded?: boolean }) {
           <button type="button" onClick={() => step(1)} aria-label="Next">
             <TransportIcon name="next" />
           </button>
-          <p className="player__hint">Arrow keys move through the set. Rose states wait on a person.</p>
         </div>
       </section>
 
