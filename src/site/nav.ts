@@ -1,4 +1,4 @@
-export const githubUrl = "https://github.com/k-aksha/dimond"
+export const githubUrl = "https://github.com/k-aksha/agent-diamond-interaction"
 
 export type Page = "home" | "playground" | "docs" | "workspace"
 
